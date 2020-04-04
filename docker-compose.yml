@@ -1,0 +1,26 @@
+version : '3'
+services:
+
+  database:
+    image: 'mongo'
+    container_name: 'mongo_container'
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=server_db
+      - MONGO_INITDB_ROOT_USERNAME=aman
+      - MONGO_INITDB_ROOT_PASSWORD=aman
+    ports:
+    - 27017:27017
+
+  restapi:
+    image: 'restapi11'
+    container_name: 'restapi_container'
+    ports:
+    - 8080:8080
+    links:
+    - database
+
+volumes:
+  mongodb_data:
+    driver: local
