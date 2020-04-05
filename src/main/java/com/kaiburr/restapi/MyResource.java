@@ -9,8 +9,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-/** Example resource class hosted at the URI path "/myresource"
- */
 @Path("/index")
 public class MyResource {
     
@@ -24,95 +22,6 @@ public class MyResource {
     public String getIt() 
     {	
     	String page = "<!DOCTYPE html>\n";
-    	page +=  "<html> <body>  total number of recorde are :: \n";
-    	page += "<p id=\"demo\"></p>\n";
-    	page += "<p id=\"demo1\"></p>\n";
-    	page += "<p id=\"demo3\"></p>\n";
-    	page += "<button type=\"button\" onclick=\"loadDoc()\">Request data</button>\n";
-    	page +=  "<script>\r\n" + 
-    			"function loadDoc() {\r\n" + 
-    			"  var xhttp = new XMLHttpRequest();\r\n" + 
-    			"  xhttp.onreadystatechange = function() {\r\n" + 
-    			"    if (this.readyState == 4 && this.status == 200) {\r\n" + 
-    			"      var myObj = JSON.parse(this.responseText);\r\n" + 
-    			" 	   var obj = JSON.stringify(myObj[1]);"+		
-    			"      document.getElementById(\"demo\").innerHTML = obj;"+
-    			"      document.getElementById(\"demo1\").innerHTML = myObj[1].framework;"+
-    			"		var string;"+
-    			" 	   for (i in myObj)"+
-    			" 		{\r\n  string = string + JSON.stringify(myObj[i])+ i+\"\\n\";} " + 
-    			"  		document.getElementById(\"demo3\").innerHTML = string;"+
-    			"		"+
-    			"    }\r\n" + 
-    			"  };\r\n" + 
-    			"  xhttp.open(\"GET\", \"http://localhost:8011/restapi/get_servers\", true);\r\n" + 
-    			"xhttp.setRequestHeader(\"Content-type\", \"application/json\");"+
-    			"  xhttp.send();\r\n" + 
-    			"}\r\n" + 
-    			"</script>";
-//-------------------------------------------------------------------------
-//put request 
-    	page += "<hr>\r\n" + 
-    			"put_create_server ::<br>\r\n" + 
-    			"<p id=\"demo4\"></p>\r\n" + 
-    			" <div>\r\n" + 
-    			"      <form name =\"url_input\">\r\n" + 
-    			"        <label for=\"framework\" >Framework :</label><br>\r\n" + 
-    			"        <input type=\"text\" name=\"framework\" placeholder=\"framework\" value=\"test\" autofocus required>\r\n" + 
-    			"        <br>\r\n" + 
-    			"        <label for=\"lanuage\">Language</label>\r\n" + 
-    			"        <input type=\"text\" name=\"language\" placeholder=\"language\" value=\"test\">\r\n" + 
-    			"        <br>\r\n" + 
-    			"        <label for=\"id\">Id:</label>\r\n" + 
-    			"        <input type=\"number\" name=\"id\" placeholder=\"id\" value=\"1\">\r\n" + 
-    			"        <br>\r\n" + 
-    			"        <label for=\"name\">Name</label>\r\n" + 
-    			"        <input type=\"text\" name=\"name\" placeholder=\"name\" value=\"test\">\r\n" + 
-    			"        <br>\r\n" + 
-    			"      </form>\r\n" + 
-    			"</div>\r\n" + 
-    			"<button type=\"button\" onclick=\"putCreateServer()\">Input data</button>\r\n" + 
-    			"<script>\r\n" + 
-    			"function putCreateServer() \r\n" + 
-    			"    {\r\n" + 
-    			"      window.alert(\" Server Uploaded \");\r\n" + 
-    			"       var xhttp = new XMLHttpRequest(); \r\n" + 
-    			"        \r\n" + 
-    			"          var url =   document.url_input.name.value + \"-\";\r\n" + 
-    			"          url = url + document.url_input.id.value + \"-\";\r\n" + 
-    			"          url = url + document.url_input.language.value + \"-\"; \r\n" + 
-    			"          url = url + document.url_input.framework.value  ;\r\n" + 
-    			"          document.getElementById(\"demo5\").innerHTML = url ;\r\n" + 
-    			"        \r\n" + 
-    			"        xhttp.open(\"PUT\", \"http://localhost:8011/restapi/get_servers/\"+ url, true);\r\n" + 
-    			"        xhttp.send();\r\n" +
-    			"		 loadDoc();	"+	
-    			"    }\r\n" + 
-    			"</script>\r\n" + 
-    			"<p id=\"demo5\">xxx</p>";
-//-----------------------------------------------------------------
-    	page += "<hr> DELETE SERVER"+
-    			"<p id =\"demo6\"></p>\r\n" + 
-    			" <form name =\"delete\">\r\n" + 
-    			"  <label for=\"id\" >ID :</label><br>\r\n" + 
-    			"        <input type=\"number\" name=\"id\" placeholder=\"id\" value=\"1\" autofocus required>\r\n" + 
-    			"</form>\r\n" + 
-    			"<button type=\"button\" onclick=\"deleteServer()\">Delete Server</button>\r\n" + 
-    			"<script>\r\n" + 
-    			"function deleteServer() \r\n" + 
-    			"    {\r\n" + 
-    			"      window.alert(\" Server Deleted \");\r\n" + 
-    			"       var xhttp = new XMLHttpRequest(); \r\n" + 
-    			"        \r\n" + 
-    			"          var id =   document.delete.id.value ;\r\n" + 
-    			"          document.getElementById(\"demo7\").innerHTML = id ;\r\n" + 
-    			"        \r\n" + 
-    			"        xhttp.open(\"DELETE\", \"http://localhost:8011/restapi/get_servers/\"+ id, true);\r\n" + 
-    			"        xhttp.send();\r\n" +
-    			"		 loadDoc();	"+			
-    			"    }\r\n" + 
-    			"</script>\r\n" + 
-    			"<p id=\"demo7\">xxx</p>\r\n" ;
         return page;
     }
 
