@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+//import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -28,19 +28,6 @@ public class server_resource
 		return repo.getServers();
 	}
 		
-//-----------------------------------------------------------------	
-//post -> creating a resource
-		@POST
-		//@Path("/name:{name}&id:{id}&language{language}&framework:{framework}")
-		@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-		public Server create_server(Server s)
-		{
-			System.out.println("/Server create request---");
-			System.out.println(s);
-			
-			repo.create(s);
-			return s;
-		}
 //-----------------------------------------------------------------	
 //put -> creating a resource
 		@PUT
@@ -71,7 +58,7 @@ public class server_resource
 	} 
 	
 //-----------------------------------------------------------------
-	//delete -> deleting a resource
+//delete -> deleting a resource
 	@DELETE
 	@Path("/{id}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
@@ -87,8 +74,29 @@ public class server_resource
 		}
 		return s;
 	} 
+//----------------------------------------------------------------
+	@GET
+	@Path("/searchByName/{name}")
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public List<Server> get_server_by_name(@PathParam("name") String name )
+	{		
+		System.out.println("/a Server requested :: By Name ::" + name);
 
-
+		return repo.get_server_by_name(name);
+	} 
+//-----------------------------------------------------------------	
+//post -> creating a resource
+/*		    @POST
+			@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+			public Server create_server(Server s)
+			{
+				System.out.println("/Server create request---");
+				System.out.println(s);
+				
+				repo.create(s);
+				return s;
+			}
+*/
 	
 }
 

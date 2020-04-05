@@ -34,7 +34,8 @@ public class MyResource {
     	String page = "<!DOCTYPE html>\r\n" + 
     			"<html>\r\n" + 
     			"<head>\r\n" + 
-    			"	<title>resort management</title>\r\n" + 
+    			"	<title>\r\n" + 
+    			"Server-Manager-Web-UI</title>\r\n" + 
     			"	<link rel=\"icon\" href=\"images/fev1.png\" sizes=\"16x16\" type=\"image/png\">\r\n" + 
     			"	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n" + 
     			"	<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">\r\n" + 

@@ -15,6 +15,7 @@ public class server_repository
 	MongoClient mongo = null;
 	DBCollection table = null;
 	
+//-------------------------------------------------------------
 	public server_repository()
 	 {
 		 
@@ -39,7 +40,6 @@ public class server_repository
 			
 			DBCursor cursor = table.find();
 			System.out.println(":DB:getting Servers");
-			//System.out.println(cursor);
 			while (cursor.hasNext())
 			{
 				Server  s = new Server();
@@ -47,19 +47,18 @@ public class server_repository
 				DBObject obj1 = cursor.next();
 				System.out.print(" here::  ->>");
 				System.out.print(obj1.get("name"));
-				//System.out.println(cursor.next());
 				
 				String name = (String)obj1.get("name");
 				int id = (Integer)obj1.get("id");
 				String language = (String)obj1.get("language");
 				String framework = (String)obj1.get("framework");
 				  
-				  s.setName(name);
-				  s.setId(id);
-				  s.setLanguage(language);
-				  s.setFramework(framework);
+				s.setName(name);
+				s.setId(id);
+				s.setLanguage(language);
+				s.setFramework(framework);
 				  
-				 servers.add(s);
+				servers.add(s);
 				System.out.print(s.getName());
 			}
 			System.out.println(servers);
@@ -71,12 +70,12 @@ public class server_repository
 		 }
 		 return servers;
 	 }
-	 
+//--------------------------------------------------------	 
 	public void create(Server s) 
 	{		
 		try 
 		{
-			//represent json document inside a java prog.
+			
 			BasicDBObject document = new BasicDBObject();
 			document.put("name", s.getName());
 			document.put("id", s.getId());
@@ -106,11 +105,11 @@ public class server_repository
 				
 				while (cursor.hasNext())
 				{
-					//System.out.println(cursor.next());
+					
 					DBObject obj1 = cursor.next();
 					System.out.print("here::  ->>");
 					System.out.println(obj1.get("name"));
-					//System.out.println(cursor.next());
+					
 					  
 					String name = (String)obj1.get("name");
 					int id1 = (Integer)obj1.get("id");
@@ -131,6 +130,50 @@ public class server_repository
 		 }
 		 return servers;
 	 }
+	 
+	//-------------------------------------------------------------------
+		 public List<Server> get_server_by_name(String name_s)
+		 {
+			 Server s = new Server();
+			 List<Server> servers = new ArrayList<>();
+			 try 
+			 {
+				 	String exp = "/"+ name_s +"/";
+				 	System.out.println(exp);
+				 	BasicDBObject searchQuery = new BasicDBObject();
+					searchQuery.put("name", new BasicDBObject("$regex", name_s ));
+					DBCursor cursor = table.find(searchQuery);
+					
+					DBCursor cursor1 = table.find(searchQuery);
+					System.out.println(cursor1.length());
+					
+					while (cursor.hasNext())
+					{
+						
+						DBObject obj1 = cursor.next();
+						System.out.print("here::  ->>");
+						System.out.println(obj1.get("name"));
+						
+						  
+						String name1 = (String)obj1.get("name");
+						int id1 = (Integer)obj1.get("id");
+						String language = (String)obj1.get("language");
+						String framework = (String)obj1.get("framework");
+			  
+						s.setName(name1);
+						s.setId(id1);
+						s.setLanguage(language);
+						s.setFramework(framework);
+						
+						servers.add(s);
+					}
+			 }
+			 catch(Exception e)
+			 {
+				 System.out.println(e);
+			 }
+			 return servers;
+		 }
 
 //--------------------------------------------------------------------------
 		public void delete(int id)
@@ -146,19 +189,5 @@ public class server_repository
 				 System.out.println(e);
 			 }
 		 }
-		public DBCursor get_total() 
-		{
-			 //BasicDBObject searchQuery = new BasicDBObject();
-				//searchQuery.put("id", id);
-				DBCursor cursor = table.find(/*searchQuery*/);
-				
-				//DBCursor cursor1 = table.find(searchQuery);
 
-				
-			return cursor;
-		}
 	}
-
-/**************************edit this ********************
-	 
- ********************************************************/

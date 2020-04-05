@@ -76,6 +76,7 @@ An **Jersey** application in java which provides a REST API with endpoints for s
 		return repo.get_server(id);
 	} 
 ```
+![GitHub get_by_name](src/images/get_by_name.png)
 ![GitHub post](src/images/post.png)
 
 ### The “Server” objects are stored in **MongoDB** database.
