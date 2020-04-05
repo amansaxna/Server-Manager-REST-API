@@ -2,7 +2,7 @@
 ### Maven based REST-Api using MongoDB 
 An **Jersey** application in java which provides a REST API with endpoints for searching, creating and deleting “server” objects: 
 	
-	[a link](https://github.com/amansaxna/Server-Manager-REST-API/blob/master/src/main/java/com/kaiburr/restapi/server_resource.java)
+	[server_resource.java](src/main/java/com/kaiburr/restapi/server_resource.java)
 
 * #### @GET servers :-
 	Returns all the servers if no parameters are passed. When server id is passed as a parameter - return a single server or 404 if there’s no such a server.
@@ -77,8 +77,9 @@ An **Jersey** application in java which provides a REST API with endpoints for s
 	} 
 ```
 ![GitHub post](src/images/post.png)
-
+<hr>
 ### The “Server” objects are stored in ### MongoDB database.
 #### [server_repository.java](src/main/java/com/kaiburr/restapi/server_repository.java)
+
 ![GitHub code2](src/images/code2.png)
 
