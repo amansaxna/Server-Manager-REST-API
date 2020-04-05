@@ -79,7 +79,6 @@ An **Jersey** application in java which provides a REST API with endpoints for s
 ![GitHub post](src/images/post.png)
 
 ### The “Server” objects are stored in ### MongoDB database.
-[a relative link](src/main/java/com/kaiburr/restapi/server_repository.java)
+#### [server_repository.java](src/main/java/com/kaiburr/restapi/server_repository.java)
 ![GitHub code2](src/images/code2.png)
-
 
