@@ -1,4 +1,4 @@
-# REST API  
+# Server-Manager-REST-API 
 ### Maven based REST-Api using MongoDB 
 An **Jersey** application in java which provides a REST API with endpoints for searching, creating and deleting “server” objects: 
 	
@@ -36,7 +36,7 @@ An **Jersey** application in java which provides a REST API with endpoints for s
 		}
 ```
 
-![GitHub site_insert](src/images/site_insert.png)
+![GitHub site_insert](src/images/put.png)
 
 
 * #### @DELETE a server:-<br />
@@ -78,7 +78,7 @@ An **Jersey** application in java which provides a REST API with endpoints for s
 ```
 ![GitHub post](src/images/post.png)
 
-### The “Server” objects are stored in ### MongoDB database.
+### The “Server” objects are stored in **MongoDB** database.
 #### [server_repository.java](src/main/java/com/kaiburr/restapi/server_repository.java)
 
 ![GitHub code2](src/images/code2.png)
