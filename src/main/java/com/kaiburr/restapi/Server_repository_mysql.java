@@ -7,16 +7,15 @@ public class Server_repository_mysql {
 
 
 /***********************************edit this ***********************
- * package com.telusko.demorest;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
-public class AliensRepository_objects 
+public class Server_repository_mysql
 {
 	Connection con = null;
 
-	public AliensRepository_objects()
+	public Server_repository_mysql()
 	 {
 		 String url ="jdbc:mysql://127.0.0.1:3306/restdb";
 		 String username = "root";

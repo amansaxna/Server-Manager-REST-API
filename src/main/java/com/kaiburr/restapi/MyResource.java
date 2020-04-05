@@ -142,7 +142,54 @@ public class MyResource {
     			"		        xhttp.open(\"PUT\", \"http://localhost:8011/restapi/get_servers/\"+url, true);\r\n" + 
     			"		        xhttp.send();\r\n" + 
     			"		    }\r\n" + 
-    			""+
+    			"		   function get(id)\r\n" + 
+    			"		   {\r\n" + 
+    			"\r\n" + 
+    			"			var xhttp = new XMLHttpRequest();\r\n" + 
+    			"	        xhttp.onreadystatechange = function() \r\n" + 
+    			"	        {\r\n" + 
+    			"	          if (this.readyState == 4 && this.status == 200) \r\n" + 
+    			"	          {\r\n" + 
+    			"	            var myObj = JSON.parse(this.responseText);\r\n" + 
+    			"	            //var obj = JSON.stringify(myObj[1]);\r\n" + 
+    			"	            //document.getElementById(\"demo\").innerHTML = obj;\r\n" + 
+    			"	            //document.getElementById(\"demo1\").innerHTML = myObj[1].framework;\r\n" + 
+    			"	            var string;      \r\n" + 
+    			"	            for (i in myObj)     \r\n" + 
+    			"	            {\r\n" + 
+    			"	              //string = string + JSON.stringify(myObj[i])+ i+\"\\n\";\r\n" + 
+    			"				    string = string+ \"<div class=\\\"card border-dark mb-3\\\" id=\\\"ServerImage\"\r\n" + 
+    			"				    	+ myObj[i].id\r\n" + 
+    			"				    	+\"\\\" style=\\\"width: 13rem; display: \"\r\n" + 
+    			"				    	+\"inline-block;text-align: center\\\";>\"\r\n" + 
+    			"						+\"<div class=\\\"card-header\\\">\" \r\n" + 
+    			"						+myObj[i].id\r\n" + 
+    			"						+\"</div> <div class=\\\"card-body text-dark\\\"><h5 class=\\\"card-title\\\">\"\r\n" + 
+    			"						+myObj[i].name\r\n" + 
+    			"						+\"</h5><p class=\\\"card-text\\\">\"\r\n" + 
+    			"						+myObj[i].language\r\n" + 
+    			"						+\"</p><p class=\\\"card-text\\\">\"\r\n" + 
+    			"						+myObj[i].framewor\r\n" + 
+    			"						+\"</p></div><a href=\\\"#\\\"><div class=\\\"card-footer bg-transparent border-success\" \r\n" + 
+    			"						+\"style=\\\"background-color: green\\\">\"\r\n" + 
+    			"						+\"<button type=\\\"button\\\" style=\\\"border: 0px; background-color: white;\\\" onclick=\\\"deleteServer(\"\r\n" + 
+    			"						+myObj[i].id\r\n" + 
+    			"						+\")\\\">\"\r\n" + 
+    			"						+\"DELETE\"\r\n" + 
+    			"						+\"<svg class=\\\"bi bi-trash\\\" width=\\\"1em\\\" height=\\\"1em\\\" viewBox=\\\"0 0 16 16\\\" fill=\\\"currentColor\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\">\"\r\n" + 
+    			"					  +\"<path d=\\\"M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z\\\"/>\"\r\n" + 
+    			"					  +\"<path fill-rule=\\\"evenodd\\\" d=\\\"M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z\\\" clip-rule=\\\"evenodd\\\"/>\"\r\n" + 
+    			"					+\"</svg>\"\r\n" + 
+    			"						+\"</button></div></a></div>\";\r\n" + 
+    			"	            }      \r\n" + 
+    			"	            document.getElementById(\"Servers\").innerHTML = string;        \r\n" + 
+    			"	          }\r\n" + 
+    			"	        };\r\n" + 
+    			"	        xhttp.open(\"GET\", \"http://localhost:8013/restapi/get_servers/searchByName/\"+id, true);\r\n" + 
+    			"	        xhttp.setRequestHeader(\"Content-type\", \"application/json\"); \r\n" + 
+    			"	        xhttp.send();\r\n" + 
+    			"	         document.getElementById(\"Servers\").style.display = \"Block\";\r\n" + 
+    			"		   }"+
     			"	</script>\r\n" + 
     			"</head>\r\n" + 
     			"<body onload=\"bodyLoaded()\">\r\n" + 

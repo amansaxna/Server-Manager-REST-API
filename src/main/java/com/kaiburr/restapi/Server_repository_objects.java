@@ -7,11 +7,10 @@ public class Server_repository_objects {
 
 /* *************************** edit this **************************************
 /// database nakli haha
-package com.telusko.demorest;
 
 import java.util.ArrayList;
 import java.util.List;
-public class AliensRepository_mysql 
+public class Server_repository_objects 
 {
 	 List<Aliens> aliens;
 	 @Override
@@ -20,7 +19,7 @@ public class AliensRepository_mysql
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
-	public AliensRepository_mysql()
+	public Server_repository_objects()
 	 {
 		 aliens = new ArrayList<>();
 		 
